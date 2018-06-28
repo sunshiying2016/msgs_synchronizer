@@ -1,0 +1,14 @@
+<launch>
+  <arg name="bag_name" default="dataset_2.bag"/>
+
+  <param name="use_sim_time" value="true" />
+  
+  <node name="rosbag_play" pkg="rosbag" type="play" args="--clock --pause -l /home/sun/rosbags/$(arg bag_name)" output="screen"/>
+  
+  <node name="rviz" pkg="rviz" type="rviz" args="-d /home/sun/rosbags/rviz/showbag.rviz"/>
+  
+  <node name="odom_map_tf_pose" type="odom_map_tf_pose_node" pkg="odom_map_tf_pose"/>
+  
+  <!-- node name="laserscan2pc2" pkg="laserscan2pc2" type="laserscan2pc2" output="screen"/ -->
+
+</launch>

@@ -1,0 +1,11 @@
+<launch>
+  <param name="use_sim_time" value="true" />
+  <arg name="bag_name" default="synchronized1.bag"/>
+  
+  <node name="rosbag_play" pkg="rosbag" type="play" args="--clock --pause -l /home/sun/rosbags/1-synchronized/$(arg bag_name)" output="screen"/>
+  
+  <node name="rviz" pkg="rviz" type="rviz" args="-d /home/sun/rosbags/rviz/showbag_synchronized.rviz"/>
+  
+
+
+</launch>
